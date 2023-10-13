@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>
+    Hi, <b>Evro*tbm</b> community! 👋🏻
+</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% if name %}
+            <h1>
+                <table class="table table-success">
+                    <thead>
+                        <tr>
+                            <th scope="col">SMS received phone number⏬</th><br>
+                            <th scope="col">The text you sent⏬</th><br>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>{{ name }}</b></td>
+                            <td><b>{{ body_text }}</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </h1>
+            {% else %}
+            <h1>
+                Fill with information below:
+            </h1>
+            <br>
+            <div class="row g-3 align-items-center">
+                <form method="post" action="" class="col-form-label">
+                    {{ form.hidden_tag() }} <br>
+                    {{ form.name.label(class="form-label") }} <br>
+                    {{ form.name(class="form-control", placeholder="phone number with (+998)") }} <br>
+                    {{ form.body_text.label }} <br>
+                    {{ form.body_text(class="form-control", rows="10") }} <br>
+                    {{ form.submit(class="btn btn-primary") }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    b {
+        color: rgb(163, 33, 33);
+    }
+
+    p {
+        color: rgb(26, 76, 155);
+    }
+
+    form {
+        text-align: center;
+    }
+</style>
+{% endif %}
+{% endblock %}
